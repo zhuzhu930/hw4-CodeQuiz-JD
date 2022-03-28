@@ -1,8 +1,7 @@
 /*todo list: 
-Set interval for the timer. 
 Change "restart" to see result.
 On the result page, set up a form to capture data from the player. with a submit button.
-Once submit, bring the player to the Hero Dashboard.
+Once submit, bring the player to the Leaderboard.
 */
 
 
@@ -12,6 +11,21 @@ const nextButton = document.getElementById('next-btn')
 const questionContainerElement = document.getElementById('question-container')
 const questionElement = document.getElementById('question')
 const answerButtonsElement = document.getElementById('answer-buttons')
+var timeEl = document.getElementById('secLeft');
+
+//set the timerInterval at the top of the question card. 
+var secondsLeft = 120;
+
+function setTimer() {
+  var timerInterval = setInterval(function() {
+    secondsLeft--;
+    timeEl.textContent = secondsLeft;
+
+    if(secondsLeft === 0) {
+      clearInterval(timerInterval);
+    }
+  }, 1000); 
+}
 
 //set variables for shuffling questions and question index
 let shuffledQuestions, currentQuestionIndex
@@ -25,6 +39,7 @@ nextButton.addEventListener('click', () => {
 
 //start the game function.
 function startGame() {
+  setTimer()
   startButton.classList.add('hide')
   shuffledQuestions = questions.sort(() => Math.random() - .5)
   currentQuestionIndex = 0
@@ -71,7 +86,7 @@ function selectAnswer(e) {
   if (shuffledQuestions.length > currentQuestionIndex + 1) {
     nextButton.classList.remove('hide')
   } else {
-    startButton.innerText = 'Restart'
+    startButton.innerText = 'Restart'//this part needs to be modified.
     startButton.classList.remove('hide')
   }
 }

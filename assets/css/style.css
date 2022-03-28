@@ -1,7 +1,3 @@
-/*  
-set the card to a fixed size.
-*/
-
 *,
 *::before,
 *::after {
@@ -14,11 +10,6 @@ set the card to a fixed size.
   --hue-wrong: 0;
   --hue-correct: 145;
 }
-/* :root {
-  --hue-neutral: hsla(207, 100%, 47%, 1);
-  --hue-wrong: hsla(360, 100%, 33%, 1);
-  --hue-correct: hsla(103, 100%, 30%, 1);
-} */
 
 body {
   --hue: var(--hue-neutral);
@@ -42,13 +33,6 @@ header {
   padding: 20px;
   margin: 10px;
 }
-/* body.correct {
-  --hue: var(--hue-correct);
-} */
-
-/* body.wrong {
-  --hue: var(--hue-wrong);
-} */
 
 .container {
   width: 800px;
@@ -69,11 +53,10 @@ header {
 .btn {
   --hue: var(--hue-neutral);
   border: 2px solid hsl(var(--hue), 100%, 30%);
-  background-color: hsl(var(--hue), 100%, 50%);
-  border-radius: 8px;
+  background-color: hsl(var(--hue), 100%, 30%);
+  border-radius: 15px;
   padding: 10px 10px;
   color: whitesmoke;
-  /* outline: none; */
 }
 
 .btn:hover {
@@ -101,6 +84,27 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+h2,
+h3 {
+  font-family: fantasy;
+}
+
+hr.solid {
+  border-top: 3px solid rgb(168, 14, 14);
+}
+
+.endPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.nameText {
+  padding: 10px;
+  margin: 20px;
 }
 
 .hide {
