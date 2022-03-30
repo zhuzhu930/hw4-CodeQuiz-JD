@@ -10,9 +10,10 @@
   --hue-wrong: 0;
   --hue-correct: 145;
 }
-
+/* adding background image with styling.  */
 body {
-  --hue: var(--hue-neutral);
+  background-image: url("/assets/images/background-img.jpg");
+  background-size: cover;
   padding: 0;
   margin: 0;
   display: flex;
@@ -21,13 +22,12 @@ body {
   height: 100vh;
   justify-content: center;
   align-items: center;
-  background-color: hsl(var(--hue), 100%, 20%);
 }
 
 header {
   display: flex;
   flex-direction: column;
-  color: whitesmoke;
+  color: gold;
   justify-content: center;
   align-items: center;
   padding: 20px;
@@ -86,9 +86,13 @@ header {
   align-items: center;
 }
 
+h1,
 h2,
 h3 {
+  padding: 0;
+  margin: 10px;
   font-family: fantasy;
+  font-weight: bolder;
 }
 
 hr.solid {

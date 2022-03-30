@@ -11,6 +11,8 @@ const nextButton = document.getElementById('next-btn')
 const questionContainerElement = document.getElementById('question-container')
 const questionElement = document.getElementById('question')
 const answerButtonsElement = document.getElementById('answer-buttons')
+const endPageElement = document.getElementById('end-page')
+
 var timeEl = document.getElementById('secLeft');
 
 //set the timerInterval at the top of the question card. 
@@ -86,11 +88,12 @@ function selectAnswer(e) {
   if (shuffledQuestions.length > currentQuestionIndex + 1) {
     nextButton.classList.remove('hide')
   } else {
-    startButton.innerText = 'Restart'//this part needs to be modified.
-    startButton.classList.remove('hide')
+    startButton.innerText = 'See Result'
+    questionContainerElement.classList.add('hide')
+    endPageElement.classList.remove('hide')
   }
 }
-
+//need to add local storage to the correct/wrong choices. 
 function setStatusClass(element, correct) {
   clearStatusClass(element)
   if (correct) {
