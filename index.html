@@ -8,9 +8,6 @@
   <script defer src="./assets/js/script.js"></script>
   <title>Trivia of Impressionism</title>
 </head>
-<!--
-1. Add the end page with a form and dashboards
-2. Hook up the timer with js-->
 
 <body>
   <header>
@@ -37,12 +34,12 @@
       <h2>Leaderboard</h2>
       <hr class="solid">
       <h3>🎉 Congratulations! 🎉</h3>
-      <p>You scored: <span>score</span>/10</p>
+      <p>You scored: <span id="counter">0</span>/10</p>
       <p>Please enter your name below.</p>
       <hr class="solid">
       <form class="enterName">
         <span>Name</span>
-        <input type="text" class="nameText" placeholder="Enter your name here">
+        <input type="text" class="nameText" id="nameText" placeholder="Enter your name here">
         <button class="btn">Submit</button>
       </form>
     </div>

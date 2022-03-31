@@ -1,7 +1,7 @@
 /*todo list: 
-Change "restart" to see result.
 On the result page, set up a form to capture data from the player. with a submit button.
 Once submit, bring the player to the Leaderboard.
+The question counter is not set correctly, need to fix that.
 */
 
 
@@ -12,8 +12,15 @@ const questionContainerElement = document.getElementById('question-container')
 const questionElement = document.getElementById('question')
 const answerButtonsElement = document.getElementById('answer-buttons')
 const endPageElement = document.getElementById('end-page')
+const nameTextElement = document.getElementById('nameText')
+// var myform = document.getElementById('enterName');
+// var form = new FormData(myform);
 
 var timeEl = document.getElementById('secLeft');
+//setting the question correct/wrong counter
+var counter = document.querySelector("#counter");
+var count = localStorage.getItem("count");
+counter.textContent = count;
 
 //set the timerInterval at the top of the question card. 
 var secondsLeft = 120;
@@ -108,6 +115,15 @@ function clearStatusClass(element) {
   element.classList.remove('wrong')
 }
 
+
+// // form will have name
+// form.append("url", window.location.href);
+
+// $.ajax(settings).done(function (response) {
+//    if (response.success) {
+//       // Only do something if the response data has success key.
+//    }
+// });
 const questions = [
   {
     question: 'What is the name of the academy that represented the status quo in French art and detested the Impressionist movement?',

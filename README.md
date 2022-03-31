@@ -2,8 +2,6 @@
 
 Trivia of Impressionism Quiz
 
-# 04 Web APIs: Code Quiz
-
 ## URLs:
 
 GitHub: https://github.com/zhuzhu930/hw4-CodeQuiz-JD
