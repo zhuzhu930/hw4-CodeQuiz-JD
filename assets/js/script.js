@@ -1,7 +1,5 @@
 /*todo list: 
-On the result page, set up a form to capture data from the player. with a submit button.
-Once submit, bring the player to the Leaderboard.
-The question counter is not set correctly, need to fix that.
+1. Nametext append to the form was not set correctly. 
 */
 
 
@@ -13,28 +11,38 @@ const questionElement = document.getElementById('question')
 const answerButtonsElement = document.getElementById('answer-buttons')
 const endPageElement = document.getElementById('end-page')
 const nameTextElement = document.getElementById('nameText')
-// var myform = document.getElementById('enterName');
-// var form = new FormData(myform);
+const formEl = document.getElementById('enterName')
+const submitBtnEl = document.getElementById("submitBtn")
+const timeEl = document.getElementById('secLeft');
+const counter = document.getElementById("counter");
+const saveBtn = document.getElementById("saveScore");
+let score;
+let highScores = [];
 
-var timeEl = document.getElementById('secLeft');
-//setting the question correct/wrong counter
-var counter = document.querySelector("#counter");
-var count = localStorage.getItem("count");
-counter.textContent = count;
+let myForm = document.getElementById('enterName');
 
-//set the timerInterval at the top of the question card. 
-var secondsLeft = 120;
+// let formData = new FormData(myForm);
+// //set the timerInterval at the top of the question card. 
+let secondsLeft = 120;
 
 function setTimer() {
-  var timerInterval = setInterval(function() {
+  let timerInterval = setInterval(function() {
     secondsLeft--;
     timeEl.textContent = secondsLeft;
 
     if(secondsLeft === 0) {
       clearInterval(timerInterval);
+      questionContainerElement.classList.add('hide')
+      endPageElement.classList.remove('hide')
     }
   }, 1000); 
 }
+
+// function saveScore (event) {
+//   event.preventdefault();
+//   console.log("I'm submitting")
+// }
+// saveBtn.addEventListener("click", saveScore)
 
 //set variables for shuffling questions and question index
 let shuffledQuestions, currentQuestionIndex
@@ -46,8 +54,23 @@ nextButton.addEventListener('click', () => {
   setNextQuestion()
 })
 
+//set up end page with Leaderboard, not working
+formEl.addEventListener('submit', e => {
+  e.preventdefault();
+  console.log("I'm submitting.")
+  nameTextElement = nameTextElement.value.trim();
+  endPageElement.classList.remove('hide');
+  addInputToForm();
+})
+
+// //This is not working
+// function addInputToForm(nameTextElement, formData) {
+//   formData.append(nameTextElement, value)
+// }
+
 //start the game function.
 function startGame() {
+  score = 0
   setTimer()
   startButton.classList.add('hide')
   shuffledQuestions = questions.sort(() => Math.random() - .5)
@@ -88,6 +111,9 @@ function resetState() {
 function selectAnswer(e) {
   const selectedButton = e.target
   const correct = selectedButton.dataset.correct
+  if(correct) {
+    score++
+  };
   setStatusClass(document.body, correct)
   Array.from(answerButtonsElement.children).forEach(button => {
     setStatusClass(button, button.dataset.correct)
@@ -98,6 +124,7 @@ function selectAnswer(e) {
     startButton.innerText = 'See Result'
     questionContainerElement.classList.add('hide')
     endPageElement.classList.remove('hide')
+    counter.innerText = score;
   }
 }
 //need to add local storage to the correct/wrong choices. 
@@ -116,14 +143,6 @@ function clearStatusClass(element) {
 }
 
 
-// // form will have name
-// form.append("url", window.location.href);
-
-// $.ajax(settings).done(function (response) {
-//    if (response.success) {
-//       // Only do something if the response data has success key.
-//    }
-// });
 const questions = [
   {
     question: 'What is the name of the academy that represented the status quo in French art and detested the Impressionist movement?',
