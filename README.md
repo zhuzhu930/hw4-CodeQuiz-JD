@@ -20,8 +20,8 @@ This is a quiz I designed to text the users' knowledge of the Impressionim Art. 
 
 1. Timer cannot work properly when the answer is wrong, it's supposed to have a 5 second punishment on the timer, but I haven't been able to figure out how to do that.
 2. The leaderboard is not fully functional with the current version, a deeper dive on append() method is needed.
-3. After several testing, for some reason, the GitHub is giving me 404 errors and not load my css and js files.
+3. For some reason, my background image shows locally, but Github page is not rendering my background page.
 
 ## In conclusion
 
-After days of work, my Github page is not even working properly. I'll keep debugging but for now I'm really frustrated.
+I've put in a lot of work into this homework, including a tutor session and hours of researching online, but I was not able to figure out how to add the input name into my final Leaderboard form. I'll keep working on it till I get it right.
