@@ -10,18 +10,19 @@ const questionContainerElement = document.getElementById('question-container')
 const questionElement = document.getElementById('question')
 const answerButtonsElement = document.getElementById('answer-buttons')
 const endPageElement = document.getElementById('end-page')
-const nameTextElement = document.getElementById('nameText') // stored entered name.
-const formEl = document.getElementById('enterName')
+let nameTextElement = document.getElementById('nameText') // stored entered name.
+//const formEl = document.getElementById('enterName')
 const submitBtnEl = document.getElementById("submitBtn") // need to set up an event listener. 
 const timeEl = document.getElementById('secLeft');
 const counter = document.getElementById("counter");
-const saveBtn = document.getElementById("saveScore");
+//const saveBtn = document.getElementById("saveScore");
 const scoreListPage = document.getElementById('scoreList'); //adding score list div to toggle class.
-const playList = document.getElementById('playerList'); //adding playlist for append child.
+const playerList = document.getElementById('playerList'); //adding playlist for append child.
 let score;
 let highScores = [];
+nameTextElement = "";
 
-let myForm = document.getElementById('enterName');
+//let myForm = document.getElementById('enterName');
 
 // let formData = new FormData(myForm);
 // //set the timerInterval at the top of the question card. 
@@ -47,7 +48,7 @@ let shuffledQuestions, currentQuestionIndex
 startButton.addEventListener('click', startGame)
 nextButton.addEventListener('click', () => {
   currentQuestionIndex++
-  setNextQuestion()
+  nextQuestion()
 })
 
 
@@ -59,12 +60,12 @@ function startGame() {
   shuffledQuestions = questions.sort(() => Math.random() - .5)
   currentQuestionIndex = 0
   questionContainerElement.classList.remove('hide')
-  setNextQuestion()
+  nextQuestion()
 }
 
 //next question function.
-function setNextQuestion() {
-  resetState()
+function nextQuestion() {
+  reset()
   showQuestion(shuffledQuestions[currentQuestionIndex])
 }
 
@@ -78,49 +79,59 @@ function showQuestion(question) {
     if (answer.correct) {
       button.dataset.correct = answer.correct
     }
-    button.addEventListener('click', selectAnswer)
+    button.addEventListener('click', chooseAnswer)
     answerButtonsElement.appendChild(button)
   })
 }
 
-function resetState() {
-  clearStatusClass(document.body)
+function reset() {
+  clearStatus(document.body)
   nextButton.classList.add('hide')
   while (answerButtonsElement.firstChild) {
     answerButtonsElement.removeChild(answerButtonsElement.firstChild)
   }
 }
 
-function selectAnswer(e) {
+function chooseAnswer(e) {
   const selectedButton = e.target
   const correct = selectedButton.dataset.correct
   if(correct) {
     score++
   };
-  setStatusClass(document.body, correct)
+  setStatus(document.body, correct)
   Array.from(answerButtonsElement.children).forEach(button => {
-    setStatusClass(button, button.dataset.correct)
+    setStatus(button, button.dataset.correct)
   })
   if (shuffledQuestions.length > currentQuestionIndex + 1) {
     nextButton.classList.remove('hide')
   } else {
-    startButton.innerText = 'See Result'
     questionContainerElement.classList.add('hide')
-    endPageElement.classList.remove('hide')
+    //endPageElement.classList.remove('hide')
     counter.innerText = score; 
-    submitBtnEl.addEventListener('submit', e => {
-      e.preventdefault();
-      //endPageElement.classList.remove('hide');
-      scoreListPage.classList.remove('hide');
-      nameTextElement = nameTextElement.value.trim();
-      const listhtml = `<li>${nameTextElement}: ${counter} points</li>`;
-      playerList.appendChild(listhtml);
-    })
+    showLeaderboard();
   }
 }
+
+function showLeaderboard(){
+  endPageElement.classList.remove('hide')
+  nameTextElement = nameTextElement.value; 
+  showScoreList();
+}
+
+function showScoreList() {
+  submitBtnEl.addEventListener('click', () => {
+    endPageElement.classList.add('hide');
+    scoreListPage.classList.remove('hide');
+    const listhtml = `<li>${nameTextElement}: ${counter} points</li>`;
+    console.log(listhtml);
+    playerList.appendChild(listhtml);
+});
+}
+
+
 //need to add local storage to the correct/wrong choices. 
-function setStatusClass(element, correct) {
-  clearStatusClass(element)
+function setStatus(element, correct) {
+  clearStatus(element)
   if (correct) {
     element.classList.add('correct')
   } else {
@@ -128,7 +139,7 @@ function setStatusClass(element, correct) {
   }
 }
 
-function clearStatusClass(element) {
+function clearStatus(element) {
   element.classList.remove('correct')
   element.classList.remove('wrong')
 }
@@ -226,6 +237,8 @@ const questions = [
     ]
   },
 ]
+
+// showScoreList();
 
 //set up button event listener on the Leaderboard page, not working
 // submitBtnEl.addEventListener('submit', e => {
