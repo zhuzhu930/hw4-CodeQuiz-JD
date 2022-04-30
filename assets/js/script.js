@@ -111,13 +111,14 @@ function chooseAnswer(e) {
     showLeaderboard();
   }
 }
-
+//the nameInput is not declared properly. causing problems. 
+//appendChild is not set properly. 
 function showLeaderboard() {
   endPageElement.classList.remove('hide')
   //nameInput = nameInput.value; 
   submitBtnEl.addEventListener('click', () => {
     let listItem = document.createElement("li");
-    let listText = `${nameInput}: ${counter} points`;
+    let listText = `${nameInput.value}: ${counter} points`;
     listItem.appendChild(listText);
     playerList.appendChild(listItem);
 });
