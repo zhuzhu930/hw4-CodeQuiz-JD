@@ -10,7 +10,7 @@ const questionContainerElement = document.getElementById('question-container')
 const questionElement = document.getElementById('question')
 const answerButtonsElement = document.getElementById('answer-buttons')
 const endPageElement = document.getElementById('end-page')
-let nameTextElement = document.getElementById('nameText') // stored entered name.
+let nameInput = document.getElementById('nameText').value; // stored entered name.
 //const formEl = document.getElementById('enterName')
 const submitBtnEl = document.getElementById("submitBtn") // need to set up an event listener. 
 const timeEl = document.getElementById('secLeft');
@@ -20,7 +20,7 @@ const scoreListPage = document.getElementById('scoreList'); //adding score list 
 const playerList = document.getElementById('playerList'); //adding playlist for append child.
 let score;
 let highScores = [];
-nameTextElement = "";
+// nameInput = "";
 
 //let myForm = document.getElementById('enterName');
 
@@ -112,22 +112,16 @@ function chooseAnswer(e) {
   }
 }
 
-function showLeaderboard(){
+function showLeaderboard() {
   endPageElement.classList.remove('hide')
-  nameTextElement = nameTextElement.value; 
-  showScoreList();
-}
-
-function showScoreList() {
+  //nameInput = nameInput.value; 
   submitBtnEl.addEventListener('click', () => {
-    endPageElement.classList.add('hide');
-    scoreListPage.classList.remove('hide');
-    const listhtml = `<li>${nameTextElement}: ${counter} points</li>`;
-    console.log(listhtml);
-    playerList.appendChild(listhtml);
+    let listItem = document.createElement("li");
+    let listText = `${nameInput}: ${counter} points`;
+    listItem.appendChild(listText);
+    playerList.appendChild(listItem);
 });
 }
-
 
 //need to add local storage to the correct/wrong choices. 
 function setStatus(element, correct) {
@@ -237,16 +231,3 @@ const questions = [
     ]
   },
 ]
-
-// showScoreList();
-
-//set up button event listener on the Leaderboard page, not working
-// submitBtnEl.addEventListener('submit', e => {
-//   e.preventdefault();
-//   //endPageElement.classList.remove('hide');
-//   scoreListPage.classList.remove('hide');
-//   nameTextElement = nameTextElement.value.trim();
-//   const listhtml = `<li>${nameTextElement}: ${counter} points</li>`;
-//   playerList.appendChild(listhtml);
-//   //addInputToForm();
-// })
