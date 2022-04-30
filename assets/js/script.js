@@ -16,6 +16,8 @@ const submitBtnEl = document.getElementById("submitBtn") // need to set up an ev
 const timeEl = document.getElementById('secLeft');
 const counter = document.getElementById("counter");
 const saveBtn = document.getElementById("saveScore");
+const scoreListPage = document.getElementById('scoreList'); //adding score list div to toggle class.
+const playList = document.getElementById('playerList'); //adding playlist for append child.
 let score;
 let highScores = [];
 
@@ -38,12 +40,6 @@ function setTimer() {
   }, 1000); 
 }
 
-// function saveScore (event) {
-//   event.preventdefault();
-//   console.log("I'm submitting")
-// }
-// saveBtn.addEventListener("click", saveScore)
-
 //set variables for shuffling questions and question index
 let shuffledQuestions, currentQuestionIndex
 
@@ -54,19 +50,6 @@ nextButton.addEventListener('click', () => {
   setNextQuestion()
 })
 
-//set up end page with Leaderboard, not working
-formEl.addEventListener('submit', e => {
-  e.preventdefault();
-  console.log("I'm submitting.")
-  nameTextElement = nameTextElement.value.trim();
-  endPageElement.classList.remove('hide');
-  addInputToForm();
-})
-
-// //This is not working
-// function addInputToForm(nameTextElement, formData) {
-//   formData.append(nameTextElement, value)
-// }
 
 //start the game function.
 function startGame() {
@@ -124,7 +107,15 @@ function selectAnswer(e) {
     startButton.innerText = 'See Result'
     questionContainerElement.classList.add('hide')
     endPageElement.classList.remove('hide')
-    counter.innerText = score;
+    counter.innerText = score; 
+    submitBtnEl.addEventListener('submit', e => {
+      e.preventdefault();
+      //endPageElement.classList.remove('hide');
+      scoreListPage.classList.remove('hide');
+      nameTextElement = nameTextElement.value.trim();
+      const listhtml = `<li>${nameTextElement}: ${counter} points</li>`;
+      playerList.appendChild(listhtml);
+    })
   }
 }
 //need to add local storage to the correct/wrong choices. 
@@ -235,3 +226,14 @@ const questions = [
     ]
   },
 ]
+
+//set up button event listener on the Leaderboard page, not working
+// submitBtnEl.addEventListener('submit', e => {
+//   e.preventdefault();
+//   //endPageElement.classList.remove('hide');
+//   scoreListPage.classList.remove('hide');
+//   nameTextElement = nameTextElement.value.trim();
+//   const listhtml = `<li>${nameTextElement}: ${counter} points</li>`;
+//   playerList.appendChild(listhtml);
+//   //addInputToForm();
+// })
