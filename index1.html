@@ -10,16 +10,42 @@
   <body>
     <header>
       <h1>Trivia of Impressionism</h1>
-      <p>Timer: <span id="timer"></span></p>
+      <p>Timer: <span id="timer"></span> seconds left</p>
     </header>
     <!-- Design 5 pages -->
     <div class="container">
       <!-- Start/Lading page -->
-      <div></div>
+      <div class="startPage" id="startPage">
+        <button class="btn startBtn" id="start">START</button>
+      </div>
       <!-- Question page -->
-      <div></div>
+      <div class="questionPage" id="questionPage">
+        <h2 class="questions" id="questionText"></h2>
+        <div class="choiceGrid" id="choiceButtons">
+          <button class="btn choiceBtn" id="choiceA"></button>
+          <button class="btn choiceBtn" id="choiceB"></button>
+          <button class="btn choiceBtn" id="choiceC"></button>
+          <button class="btn choiceBtn" id="choiceD"></button>
+        </div>
+        <div class="controlGrid" id="controls">
+          <button class="controlBtn" id="prev">PREV</button>
+          <button class="controlBtn" id="next">NEXT</button>
+        </div>
+      </div>
       <!-- Congratulation page -->
-      <div></div>
+      <div class="congratsPage" id="congratsPage">
+        <h2>
+          Congratulations, you got <span id="qCounter"></span> questions
+          correct!
+        </h2>
+        <form action="" method="get" class="nameEntry">
+          <div class="formGrid">
+            <label for="name">Enter your name: </label>
+            <input type="text" name="name" id="name" required />
+            <button class="btn submitBtn" id="submit">SUBMIT</button>
+          </div>
+        </form>
+      </div>
       <!-- Leaderbord page -->
       <div></div>
       <!-- End page -->
