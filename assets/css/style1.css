@@ -27,6 +27,16 @@ header {
   text-align: center;
 }
 
+header h1 {
+  font-family: fantasy;
+  font-weight: bolder;
+}
+
+/* header p {
+  font-size: large;
+  font-weight: bold;
+} */
+
 .container {
   width: 80vw;
   max-width: 80%;
@@ -40,3 +50,47 @@ header {
   align-items: center;
   text-align: center;
 }
+header p,
+.timer,
+.score {
+  font-size: large;
+  font-weight: bold;
+}
+
+.btn {
+  font-size: large;
+  font-weight: bold;
+  border-color: blue;
+  background-color: royalblue;
+  padding: 10px;
+  margin: 5px;
+  color: beige;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+
+.questions {
+  font-size: large;
+  font-weight: bold;
+}
+
+.choiceGrid {
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+.choiceBtn {
+  padding: 10px;
+  margin: 5px;
+}
+
+.controlGrid {
+  display: grid;
+  grid-template-columns: auto auto;
+}
+.controlBtn {
+  padding: 10px;
+  margin: 5px;
+}
+
+
