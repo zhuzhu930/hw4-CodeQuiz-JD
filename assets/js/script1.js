@@ -64,9 +64,6 @@ function startGame() {
     setTimer();
     startPage.classList.add('hide');
     questionPage.classList.remove('hide');
-    // congratsPage.classList.add('hide');
-    // leaderPage.classList.add('hide');
-    // endPage.classList.add('hide');
     questionText.innerHTML = questions[currentQ].question; 
     choiceA.innerHTML = questions[currentQ].answers[0].choice; 
     choiceA.onclick = () => {
