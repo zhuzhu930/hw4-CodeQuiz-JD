@@ -44,8 +44,20 @@ noBtn.addEventListener("click", showEndPage);
 
 //4. Write functions: start, prev, next, submit, generate player, show leaderPage, show endPage, restart the game. 
 function startGame() {
-
+    currentQ = 0; //here current Q is a counter, question length is 10, index is from 0-9. 
+    startPage.classList.add('hide');
+    questionPage.classList.remove('hide');
+    // congratsPage.classList.add('hide');
+    // leaderPage.classList.add('hide');
+    // endPage.classList.add('hide');
+    questionText.innerHTML = questions[currentQ].question; 
+    choiceA.innerHTML = questions[currentQ].answers[0].choice; 
+    choiceB.innerHTML = questions[currentQ].answers[1].choice; 
+    choiceC.innerHTML = questions[currentQ].answers[2].choice; 
+    choiceD.innerHTML = questions[currentQ].answers[3].choice; 
 }
+
+
 
 function prevQ() {
 
@@ -60,7 +72,11 @@ function showLeaderPage() {
 }
 
 function showEndPage() {
-    
+    startPage.classList.add('hide');
+    questionPage.classList.add('hide');
+    congratsPage.classList.add('hide');
+    leaderPage.classList.add('hide');
+    endPage.classList.remove('hide');
 }
 
 

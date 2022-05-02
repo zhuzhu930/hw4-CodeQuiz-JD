@@ -32,10 +32,13 @@ header h1 {
   font-weight: bolder;
 }
 
-/* header p {
-  font-size: large;
-  font-weight: bold;
-} */
+.startBtn {
+  width: 500px;
+}
+
+.startBtn:hover {
+  background-color: lightseagreen;
+}
 
 .container {
   width: 80vw;
@@ -74,18 +77,47 @@ header p,
 .questions {
   font-size: large;
   font-weight: bold;
+  padding: 20px;
+  margin: 5px;
 }
 
-.choiceGrid,
-.controlGrid,
+.questionPage {
+  padding: 20px;
+  margin: 20px;
+}
+
+.controlFlex,
 .yesnoGrid {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  padding-top: 30px;
+  margin: 10px;
+}
+
+.choiceGrid {
   display: grid;
   grid-template-columns: auto auto;
 }
+.controlBtn {
+  background-color: grey;
+  color: beige;
+  padding: 20px;
+  margin: 0 20px 0 20px;
+}
 
-.choiceBtn {
+.controlBtn:hover {
+  background-color: lightseagreen;
+}
+
+.yesnoBtn .choiceBtn {
   padding: 10px;
   margin: 5px;
+}
+
+.choiceBtn:hover {
+  background-color: lightseagreen;
 }
 
 /* .controlGrid {
@@ -114,6 +146,15 @@ form input {
 .endPage {
   padding: 0px;
   margin: 10px;
+}
+.true {
+  background-color: lightseagreen;
+  /* color: black; */
+}
+
+.false {
+  background-color: salmon;
+  /* color: black; */
 }
 
 .hide {
