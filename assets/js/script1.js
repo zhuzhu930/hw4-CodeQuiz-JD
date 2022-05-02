@@ -31,6 +31,45 @@ const noBtn = document.getElementById('noBtn');
 let score = 0;
 let timer = 120;
 let currentQ = 0;
+
+
+//3. Add onclick event listeners to buttons.
+startBtn.addEventListener("click", startGame); 
+prevBtn.addEventListener("click", prevQ);
+nextBtn.addEventListener("click", nextQ);
+submitBtn.addEventListener("click", showLeaderPage);
+yesBtn.addEventListener("click", startGame);
+noBtn.addEventListener("click", showEndPage);
+
+
+//4. Write functions: start, prev, next, submit, generate player, show leaderPage, show endPage, restart the game. 
+function startGame() {
+
+}
+
+function prevQ() {
+
+}
+
+function nextQ() {
+
+}
+
+function showLeaderPage() {
+
+}
+
+function showEndPage() {
+    
+}
+
+
+
+
+
+
+// questions: 
+
 const questions = [
     {
       question: 'What is the name of the academy that represented the status quo in French art and detested the Impressionist movement?',
@@ -123,6 +162,3 @@ const questions = [
       ]
     },
   ]
-
-//3. Add onclick event listeners to buttons.
-//4. Write functions: start, prev, next, submit, generate player, show leaderPage, show endPage, restart the game. 
