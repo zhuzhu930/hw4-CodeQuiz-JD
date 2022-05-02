@@ -8,6 +8,7 @@ const endPage = document.getElementById('endPage');
 
 //start page
 const startBtn = document.getElementById('start');
+const timerEl = document.getElementById('timer'); 
 //question page
 const questionText = document.getElementById('questionText'); 
 const choiceA = document.getElementById('choiceA'); 
@@ -42,9 +43,25 @@ yesBtn.addEventListener("click", startGame);
 noBtn.addEventListener("click", showEndPage);
 
 
-//4. Write functions: start, prev, next, submit, generate player, show leaderPage, show endPage, restart the game. 
+//4. Write functions: setTimer, start, prev, next, submit, generate player, show leaderPage, show endPage, restart the game. 
+function setTimer() {
+    let timerInterval = setInterval(function () {
+        timer--;
+        if(questions[currentQ].answers[0].answer = false) {
+            timer = timer - 5; 
+        }
+        timerEl.textContent = timer; 
+        if(timer === 0) {
+            clearInterval(timerInterval); 
+            showCongratsPage();
+        }
+
+    },1000);
+}
+
 function startGame() {
     currentQ = 0; //here current Q is a counter, question length is 10, index is from 0-9. 
+    setTimer();
     startPage.classList.add('hide');
     questionPage.classList.remove('hide');
     // congratsPage.classList.add('hide');
@@ -52,10 +69,81 @@ function startGame() {
     // endPage.classList.add('hide');
     questionText.innerHTML = questions[currentQ].question; 
     choiceA.innerHTML = questions[currentQ].answers[0].choice; 
+    choiceA.onclick = () => {
+        if(questions[currentQ].answers[0].answer) {
+            if (score < 10) {
+                score++
+                choiceA.classList.add('true');
+                choiceB.classList.add('false'); 
+                choiceC.classList.add('false'); 
+                choiceD.classList.add('false'); 
+            }
+        }
+        playerScore.innerHTML = score; 
+        if(currentQ < 9)
+        {
+            nextQ(); 
+        }
+    }
     choiceB.innerHTML = questions[currentQ].answers[1].choice; 
+    choiceB.onclick = () => {
+        if(questions[currentQ].answers[1].answer) {
+            if (score < 10) {
+                score++
+                choiceA.classList.add('false');
+                choiceB.classList.add('true'); 
+                choiceC.classList.add('false'); 
+                choiceD.classList.add('false'); 
+            }
+        }
+        playerScore.innerHTML = score; 
+        if(currentQ < 9)
+        {
+            nextQ(); 
+        }
+    }
     choiceC.innerHTML = questions[currentQ].answers[2].choice; 
+    choiceC.onclick = () => {
+        if(questions[currentQ].answers[2].answer) {
+            if (score < 10) {
+                score++
+                choiceA.classList.add('false');
+                choiceB.classList.add('false'); 
+                choiceC.classList.add('true'); 
+                choiceD.classList.add('false'); 
+            }
+        }
+        playerScore.innerHTML = score; 
+        if(currentQ < 9)
+        {
+            nextQ(); 
+        }
+    }
     choiceD.innerHTML = questions[currentQ].answers[3].choice; 
+    choiceD.onclick = () => {
+        if(questions[currentQ].answers[3].answer) {
+            if (score < 10) {
+                score++
+                choiceA.classList.add('false');
+                choiceB.classList.add('false'); 
+                choiceC.classList.add('false'); 
+                choiceD.classList.add('true'); 
+            }
+        }
+        playerScore.innerHTML = score; 
+        if(currentQ < 9)
+        {
+            nextQ(); 
+        }
+    }
+    if(currentQ > 0) {
+        showCongratsPage();
+    }
+
 }
+
+
+
 
 
 
@@ -67,8 +155,20 @@ function nextQ() {
 
 }
 
-function showLeaderPage() {
+function showCongratsPage() {
+    startPage.classList.add('hide');
+    questionPage.classList.add('hide');
+    congratsPage.classList.remove('hide');
+    leaderPage.classList.add('hide');
+    endPage.classList.add('hide');
+}
 
+function showLeaderPage() {
+    startPage.classList.add('hide');
+    questionPage.classList.add('hide');
+    congratsPage.classList.add('hide');
+    leaderPage.classList.remove('hide');
+    endPage.classList.add('hide');
 }
 
 function showEndPage() {
