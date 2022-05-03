@@ -22,7 +22,7 @@ const nextBtn = document.getElementById('next');
 
 //Congrats page
 const playerScore = document.getElementById('score');
-let playerName = document.getElementById('name').value;
+let playerName = document.getElementById('name');
 const submitBtn = document.getElementById('submit'); 
 
 //Leader page
@@ -336,8 +336,10 @@ function showLeaderPage() {
     // This part of appeding the list is not successful. cannot show the input name. 
     // playerName = playerName.value;
     // let listHtml = "";
-    let listHtml = `<li>Name: ${playerName}; Score: ${score}</li>`;
-    playerList.append(listHtml);
+    let pname = playerName.nodeValue; 
+    const liEl = document.createElement("li");
+    playerList.appendChild(liEl);
+    liEl.innerHTML = `<li>Name: ${pname}; Score: ${score}</li>`;
 }
 
 function showEndPage() {
