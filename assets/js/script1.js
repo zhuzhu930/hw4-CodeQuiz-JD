@@ -69,74 +69,60 @@ function startGame() {
     choiceA.onclick = () => {
         if(questions[currentQ].answers[0].answer) {
             if (score < 10) {
-                score++
-                choiceA.classList.add('true');
-                choiceB.classList.add('false'); 
-                choiceC.classList.add('false'); 
-                choiceD.classList.add('false'); 
+                score++    
             }
+            choiceA.classList.add('true');
+            choiceB.classList.add('false'); 
+            choiceC.classList.add('false'); 
+            choiceD.classList.add('false'); 
         }
         playerScore.innerHTML = score; 
-        if(currentQ < 9)
-        {
-            nextQ(); 
-        }
     }
     choiceB.innerHTML = questions[currentQ].answers[1].choice; 
     choiceB.onclick = () => {
         if(questions[currentQ].answers[1].answer) {
             if (score < 10) {
                 score++
-                choiceA.classList.add('false');
-                choiceB.classList.add('true'); 
-                choiceC.classList.add('false'); 
-                choiceD.classList.add('false'); 
             }
+            choiceA.classList.add('false');
+            choiceB.classList.add('true'); 
+            choiceC.classList.add('false'); 
+            choiceD.classList.add('false'); 
         }
         playerScore.innerHTML = score; 
-        if(currentQ < 9)
-        {
-            nextQ(); 
-        }
     }
     choiceC.innerHTML = questions[currentQ].answers[2].choice; 
     choiceC.onclick = () => {
         if(questions[currentQ].answers[2].answer) {
             if (score < 10) {
-                score++
-                choiceA.classList.add('false');
-                choiceB.classList.add('false'); 
-                choiceC.classList.add('true'); 
-                choiceD.classList.add('false'); 
+                score++ 
             }
+            choiceA.classList.add('false');
+            choiceB.classList.add('false'); 
+            choiceC.classList.add('true'); 
+            choiceD.classList.add('false'); 
         }
         playerScore.innerHTML = score; 
-        if(currentQ < 9)
-        {
-            nextQ(); 
-        }
     }
     choiceD.innerHTML = questions[currentQ].answers[3].choice; 
     choiceD.onclick = () => {
         if(questions[currentQ].answers[3].answer) {
             if (score < 10) {
                 score++
-                choiceA.classList.add('false');
-                choiceB.classList.add('false'); 
-                choiceC.classList.add('false'); 
-                choiceD.classList.add('true'); 
+                
             }
+            choiceA.classList.add('false');
+            choiceB.classList.add('false'); 
+            choiceC.classList.add('false'); 
+            choiceD.classList.add('true'); 
         }
         playerScore.innerHTML = score; 
-        if(currentQ < 9)
-        {
-            nextQ(); 
-        }
-    }
-    if(currentQ > 9) {
-        showCongratsPage();
     }
     prevBtn.classList.remove('hide');
+    if(currentQ < 9)
+        {
+            nextQ(); 
+        }     
 }
 
 
@@ -153,12 +139,16 @@ function prevQ() {
             if (score < 10) {
                 score++
             }
+            choiceA.classList.add('true');
+            choiceB.classList.add('false'); 
+            choiceC.classList.add('false'); 
+            choiceD.classList.add('false'); 
         }
         playerScore.innerHTML = score; 
-        if(currentQ < 9)
-        {
-            nextQ(); 
-        }
+        // if(currentQ < 9)
+        // {
+        //     nextQ(); 
+        // }
     }
     choiceB.innerHTML = questions[currentQ].answers[1].choice; 
     choiceB.onclick = () => {
@@ -166,12 +156,16 @@ function prevQ() {
             if (score < 10) {
                 score++
             }
+            choiceA.classList.add('false');
+            choiceB.classList.add('true'); 
+            choiceC.classList.add('false'); 
+            choiceD.classList.add('false'); 
         }
         playerScore.innerHTML = score; 
-        if(currentQ < 9)
-        {
-            nextQ(); 
-        }
+        // if(currentQ < 9)
+        // {
+        //     nextQ(); 
+        // }
     }
     choiceC.innerHTML = questions[currentQ].answers[2].choice; 
     choiceC.onclick = () => {
@@ -179,12 +173,16 @@ function prevQ() {
             if (score < 10) {
                 score++
             }
+            choiceA.classList.add('false');
+            choiceB.classList.add('false'); 
+            choiceC.classList.add('true'); 
+            choiceD.classList.add('false'); 
         }
         playerScore.innerHTML = score; 
-        if(currentQ < 9)
-        {
-            nextQ(); 
-        }
+        // if(currentQ < 9)
+        // {
+        //     nextQ(); 
+        // }
     }
     choiceD.innerHTML = questions[currentQ].answers[3].choice; 
     choiceD.onclick = () => {
@@ -192,21 +190,28 @@ function prevQ() {
             if (score < 10) {
                 score++
             }
+            choiceA.classList.add('false');
+            choiceB.classList.add('false'); 
+            choiceC.classList.add('false'); 
+            choiceD.classList.add('true'); 
         }
         playerScore.innerHTML = score; 
-        if(currentQ < 9)
-        {
-            nextQ(); 
-        }
+        // if(currentQ < 9)
+        // {
+        //     nextQ(); 
+        // }
     }
     nextBtn.classList.remove('hide');
+    // if(currentQ < 9)
+    //     {
+    //         nextQ(); 
+    //     } else if(currentQ >= 9) {
+    //     showCongratsPage();
+    // }
 }
 
 function nextQ() {
     currentQ++;
-    if(currentQ >= 9) {
-        showCongratsPage();
-    }
     questionText.innerHTML = questions[currentQ].question; 
     choiceA.innerHTML = questions[currentQ].answers[0].choice; 
     choiceA.onclick = () => {
@@ -214,12 +219,16 @@ function nextQ() {
             if (score < 10) {
                 score++
             }
+            choiceA.classList.add('true');
+            choiceB.classList.add('false'); 
+            choiceC.classList.add('false'); 
+            choiceD.classList.add('false'); 
         }
         playerScore.innerHTML = score; 
-        if(currentQ < 9)
-        {
-            nextQ(); 
-        }
+        // if(currentQ < 9)
+        // {
+        //     nextQ(); 
+        // }
     }
     choiceB.innerHTML = questions[currentQ].answers[1].choice; 
     choiceB.onclick = () => {
@@ -227,12 +236,16 @@ function nextQ() {
             if (score < 10) {
                 score++
             }
+            choiceA.classList.add('false');
+            choiceB.classList.add('true'); 
+            choiceC.classList.add('false'); 
+            choiceD.classList.add('false'); 
         }
         playerScore.innerHTML = score; 
-        if(currentQ < 9)
-        {
-            nextQ(); 
-        }
+        // if(currentQ < 9)
+        // {
+        //     nextQ(); 
+        // }
     }
     choiceC.innerHTML = questions[currentQ].answers[2].choice; 
     choiceC.onclick = () => {
@@ -240,12 +253,16 @@ function nextQ() {
             if (score < 10) {
                 score++
             }
+            choiceA.classList.add('false');
+            choiceB.classList.add('false'); 
+            choiceC.classList.add('true'); 
+            choiceD.classList.add('false'); 
         }
         playerScore.innerHTML = score; 
-        if(currentQ < 9)
-        {
-            nextQ(); 
-        }
+        // if(currentQ < 9)
+        // {
+        //     nextQ(); 
+        // }
     }
     choiceD.innerHTML = questions[currentQ].answers[3].choice; 
     choiceD.onclick = () => {
@@ -253,14 +270,28 @@ function nextQ() {
             if (score < 10) {
                 score++
             }
+            choiceA.classList.add('false');
+            choiceB.classList.add('false'); 
+            choiceC.classList.add('false'); 
+            choiceD.classList.add('true'); 
         }
         playerScore.innerHTML = score; 
-        if(currentQ < 9)
-        {
-            nextQ(); 
-        }
+        // if(currentQ < 9)
+        // {
+        //     nextQ(); 
+        // }
     }
     prevBtn.classList.remove('hide');
+    // if(currentQ < 9)
+    //     {
+    //         nextQ(); 
+    //     };
+    // if(currentQ >= 9) {
+    //     showCongratsPage();
+    // };
+    if(currentQ >= 9) {
+        showCongratsPage();
+    }
 }
 
 function showCongratsPage() {
