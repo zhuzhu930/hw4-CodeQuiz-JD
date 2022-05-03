@@ -44,6 +44,8 @@ header h1 {
   width: 80vw;
   max-width: 80%;
   background-color: beige;
+  padding: 20px;
+  margin: 10px;
   opacity: 85%;
   height: 80vh;
   box-shadow: 0 0 10px 4px royalblue;

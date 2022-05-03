@@ -38,7 +38,7 @@ let currentQ = 0;
 startBtn.addEventListener("click", startGame); 
 prevBtn.addEventListener("click", prevQ);
 nextBtn.addEventListener("click", nextQ);
-submitBtn.addEventListener("submit", showLeaderPage);
+// submitBtn.addEventListener("submit", showLeaderPage);
 yesBtn.addEventListener("click", startGame);
 noBtn.addEventListener("click", showEndPage);
 
@@ -60,6 +60,7 @@ function setTimer() {
 }
 
 function startGame() {
+    score = 0;
     currentQ = 0; //here current Q is a counter, question length is 10, index is from 0-9. 
     setTimer();
     startPage.classList.add('hide');
@@ -295,19 +296,26 @@ function nextQ() {
 }
 
 function showCongratsPage() {
+    debugger
     startPage.classList.add('hide');
     questionPage.classList.add('hide');
     congratsPage.classList.remove('hide');
     leaderPage.classList.add('hide');
     endPage.classList.add('hide');
+    playerName = playerName.value;
+    submitBtn.addEventListener("submit", showLeaderPage);
 }
 
 function showLeaderPage() {
+    debugger
     startPage.classList.add('hide');
     questionPage.classList.add('hide');
     congratsPage.classList.add('hide');
     leaderPage.classList.remove('hide');
     endPage.classList.add('hide');
+    playerName = playerName.value; 
+    const listHtml = `<li>Name: ${playerName}; Score: ${score}</li>`;
+    playerList.appendChild(listHtml);
 }
 
 function showEndPage() {
@@ -317,8 +325,20 @@ function showEndPage() {
     leaderPage.classList.add('hide');
     endPage.classList.remove('hide');
 }
+//toggle the right or wrong style in the HTML and CSS.
+// function setClass(element, answer) {
+//     clearClass(element)
+//     if(answer) {
+//         element.classList.add('true');
+//     } else {
+//         element.classList.add('false');
+//     }
+// }
 
-
+// function clearClass(element) {
+//     element.classList.remove('true');
+//     element.classList.remove('false');
+// }
 
 
 
