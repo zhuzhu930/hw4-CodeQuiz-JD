@@ -32,7 +32,7 @@ const noBtn = document.getElementById('noBtn');
 
 //2. Define variable for interactivity. 
 let score = 0;
-let timer = 120;
+let timer;
 let currentQ = 0;
 
 
@@ -44,12 +44,6 @@ nextBtn.addEventListener("click", nextQ);
 yesBtn.addEventListener("click", startGame);
 noBtn.addEventListener("click", showEndPage);
 form.addEventListener('submit', handleForm);
-
-function handleForm(event) { 
-    event.preventDefault(); 
-    playerName = playerName.value;
-    showLeaderPage();
-} 
 
 
 //4. Write functions: setTimer, start, prev, next, submit, generate player, show leaderPage, show endPage, restart the game. 
@@ -71,8 +65,10 @@ function setTimer() {
 function startGame() {
     score = 0;
     currentQ = 0; //here current Q is a counter, question length is 10, index is from 0-9. 
+    timer = 120; 
     setTimer();
     startPage.classList.add('hide');
+    leaderPage.classList.add('hide');
     questionPage.classList.remove('hide');
     questionText.innerHTML = questions[currentQ].question; 
     choiceA.innerHTML = questions[currentQ].answers[0].choice; 
@@ -304,6 +300,18 @@ function nextQ() {
     }
 }
 
+function handleForm(event) { 
+    event.preventDefault(); 
+    showLeaderPage();
+} 
+
+let catchNameInput = function() {
+    let nameInput = playerName.value; 
+    if(typeof nameInput === "string") {
+       return nameInput; 
+    }
+}
+
 function showCongratsPage() {
     startPage.classList.add('hide');
     questionPage.classList.add('hide');
@@ -319,14 +327,16 @@ function showCongratsPage() {
 }
 
 function showLeaderPage() {
+    debugger
     startPage.classList.add('hide');
     questionPage.classList.add('hide');
     congratsPage.classList.add('hide');
     leaderPage.classList.remove('hide');
     endPage.classList.add('hide');
     // playerName = playerName.value; 
+    playerName = playerName.value;
     let listHtml = "";
-    listHtml = `<li>Name: ${playerName}; Score: ${score}</li>`;
+    listHtml = `<li>Name: ${catchNameInput}; Score: ${score}</li>`;
     playerList.appendChild(listHtml);
 }
 
