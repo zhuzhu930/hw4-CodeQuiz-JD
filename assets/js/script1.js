@@ -38,7 +38,7 @@ let currentQ = 0;
 startBtn.addEventListener("click", startGame); 
 prevBtn.addEventListener("click", prevQ);
 nextBtn.addEventListener("click", nextQ);
-submitBtn.addEventListener("click", showLeaderPage);
+submitBtn.addEventListener("submit", showLeaderPage);
 yesBtn.addEventListener("click", startGame);
 noBtn.addEventListener("click", showEndPage);
 
@@ -133,23 +133,134 @@ function startGame() {
             nextQ(); 
         }
     }
-    if(currentQ > 0) {
+    if(currentQ > 9) {
         showCongratsPage();
     }
-
+    prevBtn.classList.remove('hide');
 }
-
-
-
-
 
 
 function prevQ() {
-
+    currentQ--;
+    if(currentQ <= 0) {
+        nextBtn.classList.remove('hide');
+        prevBtn.classList.add('hide');
+    }
+    questionText.innerHTML = questions[currentQ].question; 
+    choiceA.innerHTML = questions[currentQ].answers[0].choice; 
+    choiceA.onclick = () => {
+        if(questions[currentQ].answers[0].answer) {
+            if (score < 10) {
+                score++
+            }
+        }
+        playerScore.innerHTML = score; 
+        if(currentQ < 9)
+        {
+            nextQ(); 
+        }
+    }
+    choiceB.innerHTML = questions[currentQ].answers[1].choice; 
+    choiceB.onclick = () => {
+        if(questions[currentQ].answers[1].answer) {
+            if (score < 10) {
+                score++
+            }
+        }
+        playerScore.innerHTML = score; 
+        if(currentQ < 9)
+        {
+            nextQ(); 
+        }
+    }
+    choiceC.innerHTML = questions[currentQ].answers[2].choice; 
+    choiceC.onclick = () => {
+        if(questions[currentQ].answers[2].answer) {
+            if (score < 10) {
+                score++
+            }
+        }
+        playerScore.innerHTML = score; 
+        if(currentQ < 9)
+        {
+            nextQ(); 
+        }
+    }
+    choiceD.innerHTML = questions[currentQ].answers[3].choice; 
+    choiceD.onclick = () => {
+        if(questions[currentQ].answers[3].answer) {
+            if (score < 10) {
+                score++
+            }
+        }
+        playerScore.innerHTML = score; 
+        if(currentQ < 9)
+        {
+            nextQ(); 
+        }
+    }
+    nextBtn.classList.remove('hide');
 }
 
 function nextQ() {
-
+    currentQ++;
+    if(currentQ >= 9) {
+        showCongratsPage();
+    }
+    questionText.innerHTML = questions[currentQ].question; 
+    choiceA.innerHTML = questions[currentQ].answers[0].choice; 
+    choiceA.onclick = () => {
+        if(questions[currentQ].answers[0].answer) {
+            if (score < 10) {
+                score++
+            }
+        }
+        playerScore.innerHTML = score; 
+        if(currentQ < 9)
+        {
+            nextQ(); 
+        }
+    }
+    choiceB.innerHTML = questions[currentQ].answers[1].choice; 
+    choiceB.onclick = () => {
+        if(questions[currentQ].answers[1].answer) {
+            if (score < 10) {
+                score++
+            }
+        }
+        playerScore.innerHTML = score; 
+        if(currentQ < 9)
+        {
+            nextQ(); 
+        }
+    }
+    choiceC.innerHTML = questions[currentQ].answers[2].choice; 
+    choiceC.onclick = () => {
+        if(questions[currentQ].answers[2].answer) {
+            if (score < 10) {
+                score++
+            }
+        }
+        playerScore.innerHTML = score; 
+        if(currentQ < 9)
+        {
+            nextQ(); 
+        }
+    }
+    choiceD.innerHTML = questions[currentQ].answers[3].choice; 
+    choiceD.onclick = () => {
+        if(questions[currentQ].answers[3].answer) {
+            if (score < 10) {
+                score++
+            }
+        }
+        playerScore.innerHTML = score; 
+        if(currentQ < 9)
+        {
+            nextQ(); 
+        }
+    }
+    prevBtn.classList.remove('hide');
 }
 
 function showCongratsPage() {
