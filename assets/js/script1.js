@@ -304,7 +304,7 @@ function handleForm(event) {
     event.preventDefault(); 
     showLeaderPage();
 } 
-
+//study this function. 
 let catchNameInput = function() {
     let nameInput = playerName.value; 
     if(typeof nameInput === "string") {
@@ -333,11 +333,11 @@ function showLeaderPage() {
     congratsPage.classList.add('hide');
     leaderPage.classList.remove('hide');
     endPage.classList.add('hide');
-    // playerName = playerName.value; 
+    // This part of appeding the list is not successful. cannot show the input name. 
     playerName = playerName.value;
-    let listHtml = "";
-    listHtml = `<li>Name: ${catchNameInput}; Score: ${score}</li>`;
-    playerList.appendChild(listHtml);
+    // let listHtml = "";
+    let listHtml = `<li>Name: ${catchNameInput}; Score: ${score}</li>`;
+    playerList.append(listHtml);
 }
 
 function showEndPage() {
@@ -347,23 +347,6 @@ function showEndPage() {
     leaderPage.classList.add('hide');
     endPage.classList.remove('hide');
 }
-//toggle the right or wrong style in the HTML and CSS.
-// function setClass(element, answer) {
-//     clearClass(element)
-//     if(answer) {
-//         element.classList.add('true');
-//     } else {
-//         element.classList.add('false');
-//     }
-// }
-
-// function clearClass(element) {
-//     element.classList.remove('true');
-//     element.classList.remove('false');
-// }
-
-
-
 
 // questions: 
 
