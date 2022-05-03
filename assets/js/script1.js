@@ -71,10 +71,10 @@ function startGame() {
             if (score < 10) {
                 score++    
             }
-            choiceA.classList.add('true');
-            choiceB.classList.add('false'); 
-            choiceC.classList.add('false'); 
-            choiceD.classList.add('false'); 
+            // choiceA.classList.add('true');
+            // choiceB.classList.add('false'); 
+            // choiceC.classList.add('false'); 
+            // choiceD.classList.add('false'); 
         }
         playerScore.innerHTML = score; 
     }
@@ -84,10 +84,10 @@ function startGame() {
             if (score < 10) {
                 score++
             }
-            choiceA.classList.add('false');
-            choiceB.classList.add('true'); 
-            choiceC.classList.add('false'); 
-            choiceD.classList.add('false'); 
+            // choiceA.classList.add('false');
+            // choiceB.classList.add('true'); 
+            // choiceC.classList.add('false'); 
+            // choiceD.classList.add('false'); 
         }
         playerScore.innerHTML = score; 
     }
@@ -97,10 +97,10 @@ function startGame() {
             if (score < 10) {
                 score++ 
             }
-            choiceA.classList.add('false');
-            choiceB.classList.add('false'); 
-            choiceC.classList.add('true'); 
-            choiceD.classList.add('false'); 
+            // choiceA.classList.add('false');
+            // choiceB.classList.add('false'); 
+            // choiceC.classList.add('true'); 
+            // choiceD.classList.add('false'); 
         }
         playerScore.innerHTML = score; 
     }
@@ -111,10 +111,10 @@ function startGame() {
                 score++
                 
             }
-            choiceA.classList.add('false');
-            choiceB.classList.add('false'); 
-            choiceC.classList.add('false'); 
-            choiceD.classList.add('true'); 
+            // choiceA.classList.add('false');
+            // choiceB.classList.add('false'); 
+            // choiceC.classList.add('false'); 
+            // choiceD.classList.add('true'); 
         }
         playerScore.innerHTML = score; 
     }
@@ -139,10 +139,10 @@ function prevQ() {
             if (score < 10) {
                 score++
             }
-            choiceA.classList.add('true');
-            choiceB.classList.add('false'); 
-            choiceC.classList.add('false'); 
-            choiceD.classList.add('false'); 
+            // choiceA.classList.add('true');
+            // choiceB.classList.add('false'); 
+            // choiceC.classList.add('false'); 
+            // choiceD.classList.add('false'); 
         }
         playerScore.innerHTML = score; 
         // if(currentQ < 9)
@@ -156,10 +156,10 @@ function prevQ() {
             if (score < 10) {
                 score++
             }
-            choiceA.classList.add('false');
-            choiceB.classList.add('true'); 
-            choiceC.classList.add('false'); 
-            choiceD.classList.add('false'); 
+            // choiceA.classList.add('false');
+            // choiceB.classList.add('true'); 
+            // choiceC.classList.add('false'); 
+            // choiceD.classList.add('false'); 
         }
         playerScore.innerHTML = score; 
         // if(currentQ < 9)
@@ -173,10 +173,10 @@ function prevQ() {
             if (score < 10) {
                 score++
             }
-            choiceA.classList.add('false');
-            choiceB.classList.add('false'); 
-            choiceC.classList.add('true'); 
-            choiceD.classList.add('false'); 
+            // choiceA.classList.add('false');
+            // choiceB.classList.add('false'); 
+            // choiceC.classList.add('true'); 
+            // choiceD.classList.add('false'); 
         }
         playerScore.innerHTML = score; 
         // if(currentQ < 9)
@@ -190,10 +190,10 @@ function prevQ() {
             if (score < 10) {
                 score++
             }
-            choiceA.classList.add('false');
-            choiceB.classList.add('false'); 
-            choiceC.classList.add('false'); 
-            choiceD.classList.add('true'); 
+            // choiceA.classList.add('false');
+            // choiceB.classList.add('false'); 
+            // choiceC.classList.add('false'); 
+            // choiceD.classList.add('true'); 
         }
         playerScore.innerHTML = score; 
         // if(currentQ < 9)
@@ -219,10 +219,10 @@ function nextQ() {
             if (score < 10) {
                 score++
             }
-            choiceA.classList.add('true');
-            choiceB.classList.add('false'); 
-            choiceC.classList.add('false'); 
-            choiceD.classList.add('false'); 
+            // choiceA.classList.add('true');
+            // choiceB.classList.add('false'); 
+            // choiceC.classList.add('false'); 
+            // choiceD.classList.add('false'); 
         }
         playerScore.innerHTML = score; 
         // if(currentQ < 9)
@@ -236,10 +236,10 @@ function nextQ() {
             if (score < 10) {
                 score++
             }
-            choiceA.classList.add('false');
-            choiceB.classList.add('true'); 
-            choiceC.classList.add('false'); 
-            choiceD.classList.add('false'); 
+            // choiceA.classList.add('false');
+            // choiceB.classList.add('true'); 
+            // choiceC.classList.add('false'); 
+            // choiceD.classList.add('false'); 
         }
         playerScore.innerHTML = score; 
         // if(currentQ < 9)
@@ -253,10 +253,10 @@ function nextQ() {
             if (score < 10) {
                 score++
             }
-            choiceA.classList.add('false');
-            choiceB.classList.add('false'); 
-            choiceC.classList.add('true'); 
-            choiceD.classList.add('false'); 
+            // choiceA.classList.add('false');
+            // choiceB.classList.add('false'); 
+            // choiceC.classList.add('true'); 
+            // choiceD.classList.add('false'); 
         }
         playerScore.innerHTML = score; 
         // if(currentQ < 9)
@@ -270,10 +270,10 @@ function nextQ() {
             if (score < 10) {
                 score++
             }
-            choiceA.classList.add('false');
-            choiceB.classList.add('false'); 
-            choiceC.classList.add('false'); 
-            choiceD.classList.add('true'); 
+            // choiceA.classList.add('false');
+            // choiceB.classList.add('false'); 
+            // choiceC.classList.add('false'); 
+            // choiceD.classList.add('true'); 
         }
         playerScore.innerHTML = score; 
         // if(currentQ < 9)
