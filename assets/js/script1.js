@@ -5,6 +5,8 @@ const questionPage = document.getElementById('questionPage');
 const congratsPage = document.getElementById('congratsPage');
 const leaderPage = document.getElementById('leaderPage');
 const endPage = document.getElementById('endPage'); 
+let form = document.getElementById("nameEntryForm");
+
 
 //start page
 const startBtn = document.getElementById('start');
@@ -20,7 +22,7 @@ const nextBtn = document.getElementById('next');
 
 //Congrats page
 const playerScore = document.getElementById('score');
-const playerName = document.getElementById('name');
+let playerName = document.getElementById('name');
 const submitBtn = document.getElementById('submit'); 
 
 //Leader page
@@ -41,6 +43,13 @@ nextBtn.addEventListener("click", nextQ);
 // submitBtn.addEventListener("submit", showLeaderPage);
 yesBtn.addEventListener("click", startGame);
 noBtn.addEventListener("click", showEndPage);
+form.addEventListener('submit', handleForm);
+
+function handleForm(event) { 
+    event.preventDefault(); 
+    playerName = playerName.value;
+    showLeaderPage();
+} 
 
 
 //4. Write functions: setTimer, start, prev, next, submit, generate player, show leaderPage, show endPage, restart the game. 
@@ -296,25 +305,28 @@ function nextQ() {
 }
 
 function showCongratsPage() {
-    debugger
     startPage.classList.add('hide');
     questionPage.classList.add('hide');
     congratsPage.classList.remove('hide');
     leaderPage.classList.add('hide');
     endPage.classList.add('hide');
-    playerName = playerName.value;
-    submitBtn.addEventListener("submit", showLeaderPage);
+    // playerName = playerName.value;
+    // submitBtn.addEventListener("submit", (e)=>
+    // { debugger
+    //     e.preventDefault()
+    //     showLeaderPage();
+    // });
 }
 
 function showLeaderPage() {
-    debugger
     startPage.classList.add('hide');
     questionPage.classList.add('hide');
     congratsPage.classList.add('hide');
     leaderPage.classList.remove('hide');
     endPage.classList.add('hide');
-    playerName = playerName.value; 
-    const listHtml = `<li>Name: ${playerName}; Score: ${score}</li>`;
+    // playerName = playerName.value; 
+    let listHtml = "";
+    listHtml = `<li>Name: ${playerName}; Score: ${score}</li>`;
     playerList.appendChild(listHtml);
 }
 
