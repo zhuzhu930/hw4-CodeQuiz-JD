@@ -22,7 +22,7 @@ const nextBtn = document.getElementById('next');
 
 //Congrats page
 const playerScore = document.getElementById('score');
-let playerName = document.getElementById('name');
+let playerName = document.getElementById('name').value;
 const submitBtn = document.getElementById('submit'); 
 
 //Leader page
@@ -305,12 +305,12 @@ function handleForm(event) {
     showLeaderPage();
 } 
 //study this function. 
-let catchNameInput = function() {
-    let nameInput = playerName.value; 
-    if(typeof nameInput === "string") {
-       return nameInput; 
-    }
-}
+// let catchNameInput = function() {
+//     let nameInput = playerName.value; 
+//     if(typeof nameInput === "string") {
+//        return nameInput; 
+//     }
+// }
 
 function showCongratsPage() {
     startPage.classList.add('hide');
@@ -334,9 +334,9 @@ function showLeaderPage() {
     leaderPage.classList.remove('hide');
     endPage.classList.add('hide');
     // This part of appeding the list is not successful. cannot show the input name. 
-    playerName = playerName.value;
+    // playerName = playerName.value;
     // let listHtml = "";
-    let listHtml = `<li>Name: ${catchNameInput}; Score: ${score}</li>`;
+    let listHtml = `<li>Name: ${playerName}; Score: ${score}</li>`;
     playerList.append(listHtml);
 }
 
